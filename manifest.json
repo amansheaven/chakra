@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Chakra",
+  "version": "1.0",
+  "description": "Extracts and displays markdown and code cells from Colab notebooks in a slide-out panel.",
+  "permissions": [],
+  "host_permissions": ["https://colab.research.google.com/*"],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_icon": "icon.png",
+    "default_title": "Colab Markdown Extractor"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://colab.research.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["page-script.js", "icon.svg"],
+      "matches": ["https://colab.research.google.com/*"]
+    }
+  ]
+}
